@@ -39,7 +39,7 @@ button {
     color: var(--brand-color);
     font-size: 1.5rem;
     padding: 5px 25px;
-    margin-bottom: 25px;
+    margin: 0px 15px 25px 15px;
     border-radius: 5px;
 }
 
