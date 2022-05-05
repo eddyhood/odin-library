@@ -90,6 +90,17 @@ h1>i {
     margin-right: 5px;
 }
 
+#cross {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 24px;
+}
+
+#cross>i {
+    font-size: 24px;
+    color: var(--text-color);
+}
+
 #add-form>button {
     align-self: center;
     width: 50%;

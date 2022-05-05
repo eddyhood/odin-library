@@ -1,3 +1,4 @@
+ 
 //Logic for adding books
 
 let myLibrary = [];
@@ -15,11 +16,36 @@ function addBook() {
     myLibrary.push(entryName);
 }
 
-//Logic for form to add a book
 const addBtn = document.getElementById('add');
-const form = document.getElementById('pop-up')
-addBtn.addEventListener('click', displayForm)
+const form = document.getElementById('pop-up');
+const cross = document.getElementById('cross');
+addBtn.addEventListener('click', displayForm);
+cross.addEventListener('click', closeForm);
+form.addEventListener('submit', e => getData(e));
 
+
+
+function getData(e) {
+    // let bookTitle = document.getElementById('title');
+    // let bookAuthor = document.getElementById('author');
+    // let bookPages = document.getElementById('pages')
+    e.preventDefault();
+    let title = (e.target.elements['title'].value)
+    let author = (e.target.elements['author'].value)
+    let pages = (e.target.elements['pages'].value)
+    let rating = (e.target.elements['rating'].value)
+    console.log(title, author, pages, rating)
+
+
+    
+
+};
+
+//Logic top open and close form
 function displayForm() {
     form.style.display = 'block';
-}
+};
+
+function closeForm() {
+    form.style.display = 'none';
+};

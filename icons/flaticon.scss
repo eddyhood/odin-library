@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?a1a32792b3472e7af58d248f5f113f6f") format("truetype"),
-url("./flaticon.woff?a1a32792b3472e7af58d248f5f113f6f") format("woff"),
-url("./flaticon.woff2?a1a32792b3472e7af58d248f5f113f6f") format("woff2"),
-url("./flaticon.eot?a1a32792b3472e7af58d248f5f113f6f#iefix") format("embedded-opentype"),
-url("./flaticon.svg?a1a32792b3472e7af58d248f5f113f6f#flaticon") format("svg");
+    src: url("./flaticon.ttf?dfd873779cb36a4200ca48f428216b7a") format("truetype"),
+url("./flaticon.woff?dfd873779cb36a4200ca48f428216b7a") format("woff"),
+url("./flaticon.woff2?dfd873779cb36a4200ca48f428216b7a") format("woff2"),
+url("./flaticon.eot?dfd873779cb36a4200ca48f428216b7a#iefix") format("embedded-opentype"),
+url("./flaticon.svg?dfd873779cb36a4200ca48f428216b7a#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -25,6 +25,7 @@ $flaticon-map: (
     "minus": "\f102",
     "book": "\f103",
     "open-book": "\f104",
+    "cross": "\f105",
 );
 
 .flaticon-plus:before {
@@ -38,4 +39,7 @@ $flaticon-map: (
 }
 .flaticon-open-book:before {
     content: map-get($flaticon-map, "open-book");
+}
+.flaticon-cross:before {
+    content: map-get($flaticon-map, "cross");
 }
