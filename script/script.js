@@ -39,18 +39,13 @@ function getData(e) {
 };
 
 function addBookToLibrary(book) {
-    // (storedLibrary == true) ? myLibrary = storedLibrary : myLibrary = [];
-
-    // let newLibrary = myLibrary.push(book);
     myLibrary.push(book);
-
     window.localStorage.setItem('library', JSON.stringify(myLibrary));
 };
 
 //Logic top open and close form
 function displayForm() {
     form.style.display = 'block';
-    let library = localStorage.getItem('library');
 };
 
 function closeForm() {
@@ -61,7 +56,37 @@ function closeForm() {
 
 function eraseLibrary() {
     myLibrary = [];
+    storedLibrary = null;
     window.localStorage.removeItem('library');
+    displayBooks();
 };
 
+
+//Add library books to webpage display
+function displayBooks() {
+    //convert JSON library back to array of objects
+    const bookList = JSON.parse(storedLibrary);
+
+    const main = document.getElementById('card-main');
+
+    if(bookList) {
+        bookList.forEach(o => {
+            const card = document.createElement('p');
+            const title = document.createTextNode(o.title);
+            const author = document.createTextNode(o.author);
+            const pages = document.createTextNode(o.pages);
+            const rating = document.createTextNode(o.rating);
+            card.appendChild(title);
+            card.appendChild(author);
+            card.appendChild(pages);
+            card.appendChild(rating);
+            card.classList.add('libraryCard');
+            main.appendChild(card);
+    })      
+    } else {
+        main.textContent = '';
+        }
+};
+
+displayBooks();
 console.log(storedLibrary)
