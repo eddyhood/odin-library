@@ -1,6 +1,7 @@
 :root {
     --text-color: aliceblue;
     --brand-color: #8aaae5;
+    --card-color: #d9dce2;
     font-size: 18px;
 }
 
@@ -155,7 +156,10 @@ opacity: 0.4;
 }
 
 .libraryCard {
-    max-width: 150px;
-    max-height: 300px;
-    background: blue;
+    width: 150px;
+    height: 300px;
+    background: var(--card-color);
+    padding: 15px;
+    margin: 25px;
+    border-radius: 5px;
 }

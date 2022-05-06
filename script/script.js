@@ -71,15 +71,33 @@ function displayBooks() {
 
     if(bookList) {
         bookList.forEach(o => {
-            const card = document.createElement('p');
-            const title = document.createTextNode(o.title);
-            const author = document.createTextNode(o.author);
-            const pages = document.createTextNode(o.pages);
-            const rating = document.createTextNode(o.rating);
-            card.appendChild(title);
-            card.appendChild(author);
-            card.appendChild(pages);
-            card.appendChild(rating);
+            const card = document.createElement('div');
+
+            //title
+            const titleStyle = document.createElement('h3');
+            const titleName = document.createTextNode(o.title);
+            titleStyle.appendChild(titleName);
+            card.appendChild(titleStyle);
+
+            //author
+            const authorStyle = document.createElement('p');
+            const authorName = document.createTextNode('Author Name: ' + o.author);
+            authorStyle.appendChild(authorName);
+            card.appendChild(authorStyle);
+
+            //pages
+            const pagesStyle = document.createElement('p');
+            const pagesName = document.createTextNode('Page Count: ' + o.pages);
+            pagesStyle.appendChild(pagesName);
+            card.appendChild(pagesName);
+
+            //Rating
+            const ratingStyle = document.createElement('p');
+            const ratingName = document.createTextNode('Rating: ' + o.rating);
+            ratingStyle.appendChild(ratingName);
+            card.appendChild(ratingStyle);
+
+
             card.classList.add('libraryCard');
             main.appendChild(card);
     })      
