@@ -74,6 +74,11 @@ function displayBooks() {
         bookList.forEach(o => {
             const card = document.createElement('div');
 
+            //delete button
+            const deleteBtn = document.createElement('i');
+            deleteBtn.classList.add('flaticon-minus');
+            card.appendChild(deleteBtn);
+
             //title
             const titleStyle = document.createElement('h3');
             const titleName = document.createTextNode(o.title);
@@ -108,3 +113,4 @@ function displayBooks() {
 };
 
 displayBooks();
+console.log(storedLibrary)

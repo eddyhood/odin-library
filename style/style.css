@@ -173,3 +173,11 @@ opacity: 0.4;
     text-align: center;
     color: var(--brand-color);
 }
+
+.libraryCard>i {
+    font-size: 20px;
+    color: var(--brand-color);
+    display: block;
+    width: 100%;
+    text-align: right;
+}
