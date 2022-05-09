@@ -10,9 +10,8 @@ form.addEventListener('submit', e => getData(e));
 
 
 //Logic for adding books
-
 let myLibrary = [];
-let storedLibrary = window.localStorage.getItem('library');
+let storedLibrary = JSON.parse(window.localStorage.getItem('library'));
 
 function Book(title, author, pages, rating) {
     this.title = title
@@ -40,7 +39,9 @@ function getData(e) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
-    window.localStorage.setItem('library', JSON.stringify(myLibrary));
+    const fullLibrary = (storedLibrary) ? storedLibrary.concat(myLibrary) : myLibrary;
+    window.localStorage.setItem('library', JSON.stringify(fullLibrary));
+    displayBooks();
 };
 
 //Logic top open and close form
@@ -65,7 +66,7 @@ function eraseLibrary() {
 //Add library books to webpage display
 function displayBooks() {
     //convert JSON library back to array of objects
-    const bookList = JSON.parse(storedLibrary);
+    const bookList = JSON.parse(window.localStorage.getItem('library'));
 
     const main = document.getElementById('card-main');
 
@@ -107,4 +108,3 @@ function displayBooks() {
 };
 
 displayBooks();
-console.log(storedLibrary)
