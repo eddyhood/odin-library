@@ -3,11 +3,15 @@ const addBtn = document.getElementById('add');
 const emptyBtn = document.getElementById('empty');
 const form = document.getElementById('pop-up');
 const cross = document.getElementById('cross');
+const deleteBook = document.getElementsByClassName('flaticon-cross');
 addBtn.addEventListener('click', displayForm);
 emptyBtn.addEventListener('click', eraseLibrary);
 cross.addEventListener('click', closeForm);
 form.addEventListener('submit', e => getData(e));
 
+for(let i = 0; i < deleteBook.length; i++) {
+    Di
+}
 
 //Logic for adding books
 let myLibrary = [];
@@ -62,7 +66,6 @@ function eraseLibrary() {
     displayBooks();
 };
 
-
 //Add library books to webpage display
 function displayBooks() {
     //convert JSON library back to array of objects
@@ -76,7 +79,7 @@ function displayBooks() {
 
             //delete button
             const deleteBtn = document.createElement('i');
-            deleteBtn.classList.add('flaticon-minus');
+            deleteBtn.classList.add('flaticon-cross');
             card.appendChild(deleteBtn);
 
             //title
@@ -113,4 +116,3 @@ function displayBooks() {
 };
 
 displayBooks();
-console.log(storedLibrary)
