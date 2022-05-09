@@ -1,7 +1,8 @@
 :root {
-    --text-color: aliceblue;
-    --brand-color: #8aaae5;
+    --text-color: #9fafca;
+    --brand-color: #0e387a;
     --card-color: #d9dce2;
+    --neutral-color: #f7faff;
     font-size: 18px;
 }
 
@@ -17,7 +18,10 @@ body {
 
 main {
     flex: 1;
-    background-color: var(--text-color);
+    background-color: var(--neutral-color);
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 footer {
@@ -36,7 +40,7 @@ header, footer {
 
 button {
     border: none;
-    background-color: var(--text-color);
+    background-color: var(--neutral-color);
     color: var(--brand-color);
     font-size: 1.5rem;
     padding: 5px 25px;
@@ -156,10 +160,16 @@ opacity: 0.4;
 }
 
 .libraryCard {
-    width: 150px;
-    height: 300px;
-    background: var(--card-color);
+    max-width: 150px;
+    max-height: 200px;
+    background: var(--neutral-color);
     padding: 15px;
     margin: 25px;
     border-radius: 5px;
+    border: 1px solid var(--card-color);
+}
+
+.libraryCard>h3 {
+    text-align: center;
+    color: var(--brand-color);
 }
