@@ -3,15 +3,12 @@ const addBtn = document.getElementById('add');
 const emptyBtn = document.getElementById('empty');
 const form = document.getElementById('pop-up');
 const cross = document.getElementById('cross');
-const deleteBook = document.getElementsByClassName('flaticon-cross');
+
 addBtn.addEventListener('click', displayForm);
 emptyBtn.addEventListener('click', eraseLibrary);
 cross.addEventListener('click', closeForm);
 form.addEventListener('submit', e => getData(e));
 
-for(let i = 0; i < deleteBook.length; i++) {
-    Di
-}
 
 //Logic for adding books
 let myLibrary = [];
@@ -57,6 +54,59 @@ function closeForm() {
     form.style.display = 'none';
 };
 
+
+//Add library books to webpage display
+function displayBooks() {
+    //convert JSON library back to array of objects
+    const bookList = JSON.parse(window.localStorage.getItem('library'));
+    
+    const main = document.getElementById('card-main');
+    
+    if(bookList) {
+        bookList.forEach(o => {
+            const card = document.createElement('div');
+            
+            //delete button
+            const deleteBtn = document.createElement('i');
+            deleteBtn.classList.add('flaticon-cross');
+            card.appendChild(deleteBtn);
+            
+            //title
+            const titleStyle = document.createElement('h3');
+            const titleName = document.createTextNode(o.title);
+            titleStyle.appendChild(titleName);
+            card.appendChild(titleStyle);
+            
+            //author
+            const authorStyle = document.createElement('p');
+            const authorName = document.createTextNode('Author Name: ' + o.author);
+            authorStyle.appendChild(authorName);
+            card.appendChild(authorStyle);
+            
+            //pages
+            const pagesStyle = document.createElement('p');
+            const pagesName = document.createTextNode('Page Count: ' + o.pages);
+            pagesStyle.appendChild(pagesName);
+            card.appendChild(pagesName);
+            
+            //Rating
+            const ratingStyle = document.createElement('p');
+            const ratingName = document.createTextNode('Rating: ' + o.rating);
+            ratingStyle.appendChild(ratingName);
+            card.appendChild(ratingStyle);
+            
+            
+            card.classList.add('libraryCard');
+            main.appendChild(card);
+        })      
+    } else {
+        main.textContent = '';
+    }
+};
+
+displayBooks();
+
+
 //Logic to remove items
 
 function eraseLibrary() {
@@ -66,53 +116,12 @@ function eraseLibrary() {
     displayBooks();
 };
 
-//Add library books to webpage display
-function displayBooks() {
-    //convert JSON library back to array of objects
-    const bookList = JSON.parse(window.localStorage.getItem('library'));
-
-    const main = document.getElementById('card-main');
-
-    if(bookList) {
-        bookList.forEach(o => {
-            const card = document.createElement('div');
-
-            //delete button
-            const deleteBtn = document.createElement('i');
-            deleteBtn.classList.add('flaticon-cross');
-            card.appendChild(deleteBtn);
-
-            //title
-            const titleStyle = document.createElement('h3');
-            const titleName = document.createTextNode(o.title);
-            titleStyle.appendChild(titleName);
-            card.appendChild(titleStyle);
-
-            //author
-            const authorStyle = document.createElement('p');
-            const authorName = document.createTextNode('Author Name: ' + o.author);
-            authorStyle.appendChild(authorName);
-            card.appendChild(authorStyle);
-
-            //pages
-            const pagesStyle = document.createElement('p');
-            const pagesName = document.createTextNode('Page Count: ' + o.pages);
-            pagesStyle.appendChild(pagesName);
-            card.appendChild(pagesName);
-
-            //Rating
-            const ratingStyle = document.createElement('p');
-            const ratingName = document.createTextNode('Rating: ' + o.rating);
-            ratingStyle.appendChild(ratingName);
-            card.appendChild(ratingStyle);
+const deleteBook = document.querySelectorAll('.flaticon-cross');
+//add event listener to each delete button
+deleteBook.forEach(deleteBook => {
+    deleteBook.addEventListener('click', (e) => {
+        console.log('I was clicked' + e)
+    });
+});
 
 
-            card.classList.add('libraryCard');
-            main.appendChild(card);
-    })      
-    } else {
-        main.textContent = '';
-        }
-};
-
-displayBooks();
