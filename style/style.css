@@ -38,6 +38,13 @@ header, footer {
     align-items: center;
 }
 
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 button {
     border: none;
     background-color: var(--neutral-color);
@@ -181,3 +188,18 @@ opacity: 0.4;
     width: 100%;
     text-align: right;
 }
+
+
+@media screen and (max-width: 485px) {
+    #actions{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+    }
+
+};
