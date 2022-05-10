@@ -118,6 +118,7 @@ const deleteBook = document.querySelectorAll('.flaticon-cross');
 deleteBook.forEach(deleteBook => {
     deleteBook.addEventListener('click', () => {
         const key = deleteBook.nextSibling.innerText;
-        window.localStorage.removeItem(key);
+        const delted =  window.localStorage.removeItem(key);
+        deleteBook.parentElement.remove();
     });
 });
