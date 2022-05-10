@@ -1,3 +1,6 @@
+//Global variables
+const libraryDisplay = document.getElementById('card-main');
+
 //Logic to change form display------------------------------
 const form = document.getElementById('pop-up');
 
@@ -20,9 +23,15 @@ function hideForm() {
 
 //logic to delete local storage-------------------------------
 const eraseLibraryBtn = document.getElementById('empty');
+const library = document.getElementById('')
 eraseLibraryBtn.addEventListener('click', clearStorage);
 function clearStorage() {
+    //clear storage
     window.localStorage.clear();
+    //clear DOM
+    while(libraryDisplay.firstChild) {
+        libraryDisplay.removeChild(libraryDisplay.firstChild);
+    }
 };
 
 //Logic to get user input-------------------------------------
@@ -54,8 +63,6 @@ function storeToMemory(key, book){
 
 
 //Logic to display library
-const libraryDisplay = document.getElementById('card-main');
-
 function showBooks() {
     const main = document.getElementById('card-main');
     const keys = Object.keys(localStorage);
