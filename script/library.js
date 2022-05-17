@@ -48,12 +48,22 @@ function getBookData(e) {
 };
 
 //Logic to create books----------------------------------------
-function CreateBook(title, author, pages, rating){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.rating = rating;
-};
+// function CreateBook(title, author, pages, rating){
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.rating = rating;
+// };
+
+//Refactor code to remove the Object Construction in place of this class
+class CreateBook {
+    constructor(title, author, pages, rating) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.rating = rating;
+    }
+}
 
 //Logic to manage local storage--------------------------------
 
